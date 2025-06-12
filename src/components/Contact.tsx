@@ -3,7 +3,6 @@
 import { useRef, useState } from "react";
 import { motion } from "framer-motion";
 import emailjs from "@emailjs/browser";
-import { FaEnvelope } from "react-icons/fa";
 
 export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
