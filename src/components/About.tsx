@@ -16,7 +16,7 @@ import {
 
 export default function About() {
   return (
-    <section id="about" className="py-20 bg-gradient-to-tr from-white via-blue-500 to-white text-white px-4">
+    <section id="about" className="py-20 text-white px-4">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           className="text-4xl font-bold mb-6"
@@ -28,7 +28,7 @@ export default function About() {
         </motion.h2>
 
         <motion.p
-          className="text-lg text-white mb-12 max-w-3xl mx-auto"
+          className="text-lg text-white mb-12 max-w-3xl mx-auto font-inter"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.6 }}

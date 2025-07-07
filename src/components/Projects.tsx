@@ -39,11 +39,28 @@ const projects = [
     github: "https://github.com/Krishiv-12/Multivendor.git",
     demo: "https://multivendor-ti71.onrender.com/",
   },
+  {
+    title: "HealthMate AI - Intelligent Healthcare Assistant",
+    description:
+      "HealthMate AI is a full-stack AI-powered healthcare platform built with MERN stack that enables patients to consult doctors, book appointments, upload reports, and get AI-driven symptom analysis. It features secure JWT authentication, role-based dashboards for Admin, Doctor, and Patient.",
+    tech: [
+      "React.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "OpenAI API",
+      "Axios",
+    ],
+    github: "https://github.com/Krishiv-12/Healthmate-AI.git",
+    demo: "https://healthmate-ai.vercel.app",
+  },
 ];
 
 export default function Projects() {
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-white via-blue-500 to-white text-white px-4">
+    <section id="projects" className="py-20 px-4">
       <div className="max-w-6xl mx-auto">
         <motion.h2
           className="text-4xl font-bold text-center mb-12"
@@ -58,7 +75,7 @@ export default function Projects() {
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              className="bg-gray-800 p-6 rounded-xl shadow-lg hover:shadow-cyan-500/30 transition"
+              className="bg-gray-800 p-6 rounded-xl shadow-md hover:shadow-white transition"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -79,14 +96,14 @@ export default function Projects() {
                 <Link
                   href={project.github}
                   target="_blank"
-                  className="flex items-center gap-2 hover:text-cyan-400 transition"
+                  className="flex items-center gap-2 hover:text-pink-400 transition"
                 >
                   <FaGithub /> Code
                 </Link>
                 <Link
                   href={project.demo}
                   target="_blank"
-                  className="flex items-center gap-2 hover:text-cyan-400 transition"
+                  className="flex items-center gap-2 hover:text-pink-400 transition"
                 >
                   <FaExternalLinkAlt /> Live
                 </Link>

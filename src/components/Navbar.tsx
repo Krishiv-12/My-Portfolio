@@ -1,77 +1,66 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import Link from "next/link";
-import { Menu, X } from "lucide-react"; 
+import { Menu, X } from "lucide-react";
 
-const navItems = [
-  { label: "Home", href: "#home" },
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Contact", href: "#contact" },
-];
+const navLinks = ["Home", "About", "Projects", "Contact"];
 
 export default function Navbar() {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   return (
-    <motion.nav
-      className="w-full fixed top-0 z-50 bg-gray-100 backdrop-blur-md text-black shadow-lg"
-      initial={{ y: -50, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      <div className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
-        <h1 className="text-xl font-bold tracking-wide">Krishiv.dev</h1>
+    <header className="fixed top-0 left-0 w-full z-50 backdrop-blur  border-b border-gray-200">
+      <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
+        {/* Logo */}
+        <h1 className="text-xl font-semibold tracking-wide text-white">
+          krishiv.dev
+        </h1>
 
-        {/* Desktop Links */}
-        <div className="hidden md:flex space-x-6">
-          {navItems.map((item) => (
+        {/* Desktop Nav */}
+        <nav className="hidden md:flex space-x-6 text-white">
+          {navLinks.map((link) => (
             <Link
-              key={item.href}
-              href={item.href}
-              className="hover:text-blue-500 transition-colors"
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className="relative group"
             >
-              {item.label}
+              <span className="group-hover:text-pink-400">{link}</span>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-pink-400 transition-all group-hover:w-full" />
             </Link>
           ))}
-        </div>
+        </nav>
 
-        {/* Mobile Menu Button */}
+        {/* Mobile Hamburger */}
         <div className="md:hidden">
-          <button
-            aria-label="Toggle Menu"
-            onClick={() => setMobileOpen((prev) => !prev)}
-          >
-            {mobileOpen ? <X size={26} /> : <Menu size={26} />}
+          <button onClick={() => setOpen((prev) => !prev)} aria-label="Toggle Menu">
+            {open ? <X size={26} /> : <Menu size={26} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu */}
-<AnimatePresence>
-        {mobileOpen && (
-          <motion.div
-            className="md:hidden bg-gray-100 px-4 pt-4 pb-6 space-y-4 flex flex-col items-center text-lg shadow-md"
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3 }}
-          >
-            {navItems.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="hover:text-cyan-400 transition-colors"
-                onClick={() => setMobileOpen(false)}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.nav>
+      {/* Mobile Dropdown */}
+      {open && (
+        <div className="md:hidden bg-black/30 backdrop-blur flex flex-col items-center justify-center space-y-4 h-screen py-6 font-bold text-white uppercase border-gray-200">
+
+          {navLinks.map((link) => (
+            <Link
+              key={link}
+              href={`#${link.toLowerCase()}`}
+              className="hover:text-pink-500 text-4xl transition"
+              onClick={() => setOpen(false)}
+            >
+              {link}
+            </Link>
+          ))}
+        </div>
+      )}
+    </header>
   );
 }
+
+// "/bg1.avif",
+//   "/bg2.avif",
+//   "/bg3.avif",
+//   "/bg4.avif",
+//   "/bg5.avif",

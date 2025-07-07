@@ -26,7 +26,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-tr from-white via-blue-500 to-white text-white px-4">
+    <section id="contact" className="py-20 text-white px-4">
       <div className="max-w-3xl mx-auto text-center">
         <motion.h2
           className="text-4xl font-bold mb-6"
@@ -82,7 +82,7 @@ export default function Contact() {
           />
           <button
             type="submit"
-            className="bg-white text-black font-semibold px-6 py-3 rounded hover:bg-blue-500 transition"
+            className="bg-white text-pink-400 font-semibold px-6 py-3 rounded-l-full rounded-tr-2xl rounded-br-full hover:bg-pink-200 transition"
           >
             Send Message
           </button>

@@ -16,7 +16,7 @@ export default function ScrollToTop() {
   return show ? (
     <button
       onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-      className="fixed bottom-6 right-6 z-50 bg-cyan-500 text-black p-3 rounded-full shadow-md hover:bg-cyan-400 transition"
+      className="fixed bottom-6 right-6 z-50 bg-white text-pink-500 p-3 rounded-full shadow-md hover:bg-pink-200 transition"
     >
       <FaArrowUp />
     </button>
