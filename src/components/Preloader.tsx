@@ -25,7 +25,7 @@ export default function Preloader({ onFinish }: { onFinish: () => void }) {
     <AnimatePresence>
       <motion.div
         key="preloader"
-        className="fixed inset-0 z-[9999] bg-gradient-to-r from-blue-500 to-white flex flex-col items-center justify-center text-white"
+        className="fixed h-full w-full bg-black inset-0 z-[9999] flex flex-col items-center justify-center text-white"
         initial={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         transition={{ duration: 0.8 }}
@@ -49,9 +49,9 @@ export default function Preloader({ onFinish }: { onFinish: () => void }) {
           Loading... {progress}%
         </motion.p>
 
-        <div className="w-60 h-2 bg-gray-600 rounded overflow-hidden">
+        <div className="w-60 h-1 rounded overflow-hidden">
           <motion.div
-            className="h-full bg-white"
+            className="h-full bg-pink-400"
             initial={{ width: "0%" }}
             animate={{ width: `${progress}%` }}
             transition={{ ease: "easeOut", duration: 0.2 }}
