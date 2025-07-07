@@ -16,7 +16,7 @@ import {
 
 export default function About() {
   return (
-    <section id="about" className="py-20 text-white px-4">
+    <section id="about" className="py-20 bg-black text-white px-4">
       <div className="max-w-5xl mx-auto text-center">
         <motion.h2
           className="text-4xl font-bold mb-6"

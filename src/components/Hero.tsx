@@ -13,7 +13,7 @@ const floatingImages = [
 
 export default function Home() {
   return (
-    <main className="min-h-screen text-white font-sans overflow-hidden md:overflow-visible relative pt-6">
+    <main className="min-h-screen bg-black text-white font-sans overflow-hidden md:overflow-visible relative pt-6">
       {/* Floating Image Cards */}
       {floatingImages.map((src, index) => (
         <motion.div
