@@ -13,7 +13,7 @@ const floatingImages = [
 
 const textVariants = {
   hidden: { opacity: 0, y: -40 },
-  visible: (custom) => ({
+  visible: (custom: number) => ({
     opacity: 1,
     y: 0,
     transition: {
