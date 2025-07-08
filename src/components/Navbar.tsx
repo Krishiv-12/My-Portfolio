@@ -32,7 +32,7 @@ export default function Navbar() {
         </nav>
 
         {/* Mobile Hamburger */}
-        <div className="md:hidden">
+        <div className="md:hidden text-white">
           <button onClick={() => setOpen((prev) => !prev)} aria-label="Toggle Menu">
             {open ? <X size={26} /> : <Menu size={26} />}
           </button>
@@ -41,7 +41,7 @@ export default function Navbar() {
 
       {/* Mobile Dropdown */}
       {open && (
-        <div className="md:hidden bg-black/30 backdrop-blur flex flex-col items-center justify-center space-y-4 h-screen py-6 font-bold text-white uppercase border-gray-200">
+        <div className="md:hidden bg-black/70 backdrop-blur flex flex-col items-center justify-center space-y-4 h-screen font-bold text-white uppercase border-gray-200">
 
           {navLinks.map((link) => (
             <Link

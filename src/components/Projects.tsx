@@ -63,7 +63,7 @@ export default function Projects() {
     <section id="projects" className="py-20 bg-black px-4">
       <div className="max-w-6xl mx-auto">
         <motion.h2
-          className="text-4xl font-bold text-center mb-12"
+          className="text-4xl text-white font-bold text-center mb-12"
           initial={{ opacity: 0, y: -20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -80,7 +80,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
             >
-              <h3 className="text-2xl font-semibold mb-2">{project.title}</h3>
+              <h3 className="text-2xl text-white font-semibold mb-2">{project.title}</h3>
               <p className="text-gray-300 mb-4">{project.description}</p>
               <div className="flex flex-wrap gap-2 text-sm mb-4">
                 {project.tech.map((tech, i) => (
@@ -96,14 +96,14 @@ export default function Projects() {
                 <Link
                   href={project.github}
                   target="_blank"
-                  className="flex items-center gap-2 hover:text-pink-400 transition"
+                  className="flex items-center gap-2 text-white hover:text-pink-400 transition"
                 >
                   <FaGithub /> Code
                 </Link>
                 <Link
                   href={project.demo}
                   target="_blank"
-                  className="flex items-center gap-2 hover:text-pink-400 transition"
+                  className="flex items-center gap-2 text-white hover:text-pink-400 transition"
                 >
                   <FaExternalLinkAlt /> Live
                 </Link>

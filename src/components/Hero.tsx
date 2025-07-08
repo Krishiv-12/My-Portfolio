@@ -11,10 +11,22 @@ const floatingImages = [
   "/bg5.avif",
 ];
 
+const textVariants = {
+  hidden: { opacity: 0, y: -40 },
+  visible: (custom) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 1,
+      delay: custom * 0.5,
+    },
+  }),
+};
+
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white font-sans overflow-hidden md:overflow-visible relative pt-6">
-      {/* Floating Image Cards */}
+     
       {floatingImages.map((src, index) => (
         <motion.div
           key={index}
@@ -38,24 +50,42 @@ export default function Home() {
       ))}
       
 
-      {/* Hero Content */}
+      
       <section className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center">
-        <motion.h1
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1 }}
-          className="text-5xl sm:text-5xl md:text-9xl font-extrabold md:leading-20 max-w-4xl"
-        >
-          CREATING <br />
-          <span className="text-pink-400 mx-2">MODERN</span>
-          <br />
-          EXPERIENCES
-        </motion.h1>
+    <h1 className="text-5xl sm:text-5xl md:text-9xl font-extrabold md:leading-20 max-w-4xl">
+      <motion.span
+        custom={0}
+        variants={textVariants}
+        initial="hidden"
+        animate="visible"
+        className="block"
+      >
+        CREATING
+      </motion.span>
+      <motion.span
+        custom={1}
+        variants={textVariants}
+        initial="hidden"
+        animate="visible"
+        className="block text-pink-400 mx-2"
+      >
+        MODERN
+      </motion.span>
+      <motion.span
+        custom={2}
+        variants={textVariants}
+        initial="hidden"
+        animate="visible"
+        className="block"
+      >
+        EXPERIENCES
+      </motion.span>
+    </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 1.5, duration: 0.6 }}
           className="text-gray-400 capitalize mt-4 md:max-w-xl w-full md:text-xl px-4"
         >
            I turn ideas into interactive web applications.
