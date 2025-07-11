@@ -104,26 +104,26 @@ const sendEmail = (e: React.FormEvent) => {
             <div className="p-5 rounded-xl shadow-lg space-y-4">
               <p className="flex items-center gap-3 text-gray-300">
                 <Mail className="w-5 h-5" />
-                <a href="mailto:Krishivrawat712@gmail.com" className="hover:underline">
+                <a href="mailto:Krishivrawat712@gmail.com" className="hover:text-pink-400 transition">
                   Krishivrawat712@gmail.com
                 </a>
               </p>
               <p className="flex items-center gap-3 text-gray-300">
                 <Phone className="w-5 h-5" />
-                <a href="tel:+918982482283" className="hover:underline">
+                <a href="tel:+918982482283" className="hover:text-pink-400 transition">
                   +91 89824 82283
                 </a>
               </p>
               <p className="flex items-center gap-3 text-gray-300">
                 <MapPin className="w-5 h-5" />
-                Bhopal, Madhya Pradesh
+                <span className="hover:text-pink-400 transition cursor-pointer">Bhopal, Madhya Pradesh</span>
               </p>
               <p className="flex items-center gap-3 text-gray-300">
                 <Linkedin className="w-5 h-5" />
                 <a
                   href="https://www.linkedin.com/in/krishanpal-rawat-a7bab4278"
                   target="_blank"
-                  className="hover:underline"
+                  className="hover:text-pink-400 transition"
                 >
                   LinkedIn Profile
                 </a>
@@ -133,7 +133,7 @@ const sendEmail = (e: React.FormEvent) => {
                 <a
                   href="https://github.com/Krishiv-12"
                   target="_blank"
-                  className="hover:underline"
+                  className="hover:text-pink-400 transition"
                 >
                   GitHub Profile
                 </a>

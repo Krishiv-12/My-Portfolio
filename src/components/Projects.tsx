@@ -20,7 +20,7 @@ const projects = [
       "Recharts",
     ],
     github: "https://github.com/Krishiv-12/NeuroDashboard.git",
-    demo: "https://neurodash.vercel.app", // update with real deployed link
+    demo: "https://neurodash-frontend.onrender.com/",
   },
   {
     title: "Multi-Vendor E-Commerce Platform",
@@ -54,7 +54,7 @@ const projects = [
       "Axios",
     ],
     github: "https://github.com/Krishiv-12/Healthmate-AI.git",
-    demo: "https://healthmate-ai.vercel.app",
+    demo: "https://healthmate-frontend-kyq4.onrender.com",
   },
 ];
 
