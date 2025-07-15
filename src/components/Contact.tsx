@@ -66,14 +66,14 @@ const sendEmail = (e: React.FormEvent) => {
           >
             <input
               required
-              name="user_name"
+              name="name"
               placeholder="Your Name"
               className="w-full p-3 rounded bg-gray-800 text-white border border-gray-700 outline-none focus:ring-2 focus:ring-pink-400"
             />
             <input
               required
               type="email"
-              name="user_email"
+              name="email"
               placeholder="Your Email"
               className="w-full p-3 rounded bg-gray-800 text-white border border-gray-700 outline-none focus:ring-2 focus:ring-pink-400"
             />
