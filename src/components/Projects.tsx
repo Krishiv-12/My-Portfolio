@@ -6,20 +6,50 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useMagnetic } from "@/hooks/useMagnetic";
 
-const projects = [
+/* ---------------- TYPES ---------------- */
+
+type Project = {
+  title: string;
+  description: string;
+  tech: string[];
+  github: string;
+  demo: string;
+};
+
+/* ---------------- DATA ---------------- */
+
+const projects: Project[] = [
   {
     title: "Multi-Vendor E-Commerce Platform",
     description:
-    "A full-stack productivity platform with a Pomodoro timer, drag-and-drop daily planner, and OpenAI assistant. Used by 100+ users daily. Features include JWT-secured login, real-time updates via WebSockets, and trend analytics with Recharts.",
-    tech: ["React.js","Tailwind CSS", "Node.js", "Express.js", "MongoDB", "JWT", "Razorpay", "Chart.js", "Role-based Auth"],
+      "A full-stack productivity platform with a Pomodoro timer, drag-and-drop daily planner, and OpenAI assistant. Used by 100+ users daily. Features include JWT-secured login, real-time updates via WebSockets, and trend analytics with Recharts.",
+    tech: [
+      "React.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "Razorpay",
+      "Chart.js",
+      "Role-based Auth",
+    ],
     github: "https://github.com/Krishiv-12/Multivendor.git",
     demo: "https://multivendor-ti71.onrender.com/",
   },
   {
     title: "HealthMate AI - Intelligent Healthcare Assistant",
     description:
-    "HealthMate AI is a full-stack AI-powered healthcare platform built with MERN stack that enables patients to consult doctors, book appointments, upload reports, and get AI-driven symptom analysis. It features secure JWT authentication, role-based dashboards for Admin, Doctor, and Patient.",
-    tech: ["React.js","Tailwind CSS","Node.js","Express.js", "MongoDB", "OpenAI API", "JWT"],
+      "HealthMate AI is a full-stack AI-powered healthcare platform built with MERN stack that enables patients to consult doctors, book appointments, upload reports, and get AI-driven symptom analysis. It features secure JWT authentication, role-based dashboards for Admin, Doctor, and Patient.",
+    tech: [
+      "React.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "OpenAI API",
+      "JWT",
+    ],
     github: "https://github.com/Krishiv-12/Healthmate-AI.git",
     demo: "https://healthmate-frontend-kyq4.onrender.com",
   },
@@ -27,11 +57,21 @@ const projects = [
     title: "AI Productivity Dashboard",
     description:
       "A full-stack productivity platform with a Pomodoro timer, drag-and-drop daily planner, and OpenAI assistant. Used by 100+ users daily. Features include JWT-secured login, real-time updates via WebSockets, and trend analytics with Recharts.",
-    tech: ["React.js","Tailwind CSS", "Node.js", "Express.js", "MongoDB", "OpenAI API", "Recharts"],
+    tech: [
+      "React.js",
+      "Tailwind CSS",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "OpenAI API",
+      "Recharts",
+    ],
     github: "https://github.com/Krishiv-12/NeuroDashboard.git",
     demo: "https://neurodash-frontend.onrender.com/",
   },
 ];
+
+/* ---------------- PAGE ---------------- */
 
 export default function Projects() {
   return (
@@ -56,7 +96,15 @@ export default function Projects() {
   );
 }
 
-function ProjectRow({ project, index }: any) {
+/* ---------------- COMPONENT ---------------- */
+
+function ProjectRow({
+  project,
+  index,
+}: {
+  project: Project;
+  index: number;
+}) {
   const githubRef = useRef<HTMLAnchorElement>(null);
   const liveRef = useRef<HTMLAnchorElement>(null);
 
@@ -85,10 +133,10 @@ function ProjectRow({ project, index }: any) {
         </p>
 
         <div className="flex flex-wrap gap-3">
-          {project.tech.map((tech: string, i: number) => (
+          {project.tech.map((tech, i) => (
             <span
               key={i}
-              className="text-xs px-6 py-3 rounded-full border border-white text-pink-300"
+              className="text-xs px-4 py-2 md:px-6 md:py-3 rounded-full border border-white text-pink-300"
             >
               {tech}
             </span>
