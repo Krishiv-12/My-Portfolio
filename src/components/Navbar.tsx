@@ -13,8 +13,8 @@ export default function Navbar() {
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
         {/* Logo */}
-        <h1 className="text-xl font-semibold tracking-wide text-white">
-          Krishiv.dev
+        <h1 style={{ fontFamily: "var(--font-rock)" }} className="text-xl font-semibold tracking-wide text-white font-rock">
+          krishiv.studio
         </h1>
 
         {/* Desktop Nav */}

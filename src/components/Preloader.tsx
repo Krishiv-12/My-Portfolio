@@ -7,56 +7,66 @@ export default function Preloader({ onFinish }: { onFinish: () => void }) {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const timer = setInterval(() => {
       setProgress((prev) => {
         if (prev >= 100) {
-          clearInterval(interval);
-          setTimeout(onFinish, 500);
+          clearInterval(timer);
+          setTimeout(onFinish, 600);
           return 100;
         }
         return prev + 1;
       });
-    }, 20); // Total duration ~2s
+    }, 18);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, [onFinish]);
 
   return (
     <AnimatePresence>
       <motion.div
-        key="preloader"
-        className="fixed h-full w-full bg-black inset-0 z-[9999] flex flex-col items-center justify-center text-white"
+        className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-black text-white"
         initial={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.8 }}
+        exit={{ opacity: 0, scale: 1.05 }}
+        transition={{ duration: 0.8, ease: "easeInOut" }}
       >
+        {/* Brand */}
         <motion.h1
-          className="text-5xl md:text-6xl font-bold text-white mb-6 tracking-wider animate-pulse"
-          initial={{ scale: 0.9, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+          className="text-5xl md:text-6xl font-semibold tracking-wide"
+          initial={{ y: 20, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Krishiv.dev
+          Krishiv
+          <span className="text-pink-400">.</span>Studio
         </motion.h1>
 
+        {/* Sub text */}
         <motion.p
-          className="text-xl md:text-2xl font-semibold text-white/90 mb-4"
-          key={progress}
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.2 }}
+          className="mt-3 text-sm uppercase tracking-[0.3em] text-white/60"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 0.4 }}
         >
-          Loading... {progress}%
+          Code. Create. Evolve.
         </motion.p>
 
-        <div className="w-60 h-1 rounded overflow-hidden">
+        {/* Progress Line */}
+        <div className="relative mt-10 h-[2px] w-64 overflow-hidden bg-white/10">
           <motion.div
-            className="h-full bg-pink-400"
+            className="absolute left-0 top-0 h-full bg-gradient-to-r from-pink-400 via-purple-400 to-pink-400"
             initial={{ width: "0%" }}
             animate={{ width: `${progress}%` }}
             transition={{ ease: "easeOut", duration: 0.2 }}
           />
         </div>
+
+        {/* Optional subtle counter (modern style) */}
+        <motion.span
+          className="mt-6 text-xs text-white/40 tabular-nums"
+          animate={{ opacity: progress > 10 ? 1 : 0 }}
+        >
+          {progress}%
+        </motion.span>
       </motion.div>
     </AnimatePresence>
   );

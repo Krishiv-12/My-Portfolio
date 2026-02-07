@@ -1,6 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
 import { FaReact, FaNodeJs, FaGitAlt } from "react-icons/fa";
 import {
   SiMongodb,
@@ -14,7 +18,41 @@ import {
   SiFigma,
 } from "react-icons/si";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export default function About() {
+  const textRef = useRef<HTMLParagraphElement | null>(null);
+
+  useLayoutEffect(() => {
+    if (!textRef.current) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        textRef.current!.querySelectorAll("span.word"),
+        { color: "#555" },
+        {
+          color: "#fff",
+          stagger: 0.08,
+          scrollTrigger: {
+            trigger: textRef.current,
+            start: "top 80%",
+            end: "bottom 40%",
+            scrub: 0.5,
+          },
+        }
+      );
+    });
+
+    return () => ctx.revert();
+  }, []);
+
+  const splitText = (text: string) =>
+    text.split(" ").map((word, i) => (
+      <span key={i} className="word inline-block mr-1">
+        {word}
+      </span>
+    ));
+
   return (
     <section id="about" className="py-20 bg-black text-white px-4">
       <div className="max-w-5xl mx-auto text-center">
@@ -27,29 +65,32 @@ export default function About() {
           About Me
         </motion.h2>
 
+        {/* 🔥 GSAP + Framer Motion paragraph */}
         <motion.p
-          className="text-lg text-white mb-12 max-w-3xl mx-auto font-inter"
+          ref={textRef}
+          className="text-lg mb-12 max-w-3xl mx-auto font-inter leading-relaxed"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          transition={{ delay: 0.2, duration: 0.6 }}
+          transition={{ duration: 0.6 }}
         >
-          Hi, I'm Krishanpal Rawat— a passionate Full-Stack Developer
-          specializing in the MERN stack based in Bhopal, M.P., currently
-          pursuing MCA from LNCT University. With hands-on experience at
-          Sheryians Coding School as both a Frontend and Backend Developer, I
-          love turning ideas into scalable, user-friendly web applications. Over
-          the past few years, I've honed my skills by building real-world
-          projects like multi-vendor e-commerce platforms, AI-powered
-          productivity dashboards, and custom task management tools. My approach
-          combines clean, maintainable code with an eye for responsive, modern
-          UI/UX.
+          {splitText(
+            "Hi, I'm Krishanpal Rawat — a passionate Full-Stack Developer specializing in the MERN stack based in Bhopal, M.P., currently pursuing MCA from LNCT University."
+          )}
           <br />
-          <span className="text-pink-400">
-            If you're looking for someone who's dedicated, curious, and ready to
-            make a difference <br /> — let's connect!
+          <br />
+          {splitText(
+            "With hands-on experience at Sheryians Coding School as both a Frontend and Backend Developer, I love turning ideas into scalable, user-friendly web applications."
+          )}
+          <br />
+          <br />
+          <span className="text-pink-400 block mt-4">
+            {splitText(
+              "If you're looking for someone who's dedicated, curious, and ready to make a difference — let's connect!"
+            )}
           </span>
         </motion.p>
 
+        {/* Tech stack stays unchanged */}
         <motion.div
           className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 justify-items-center"
           initial="hidden"
@@ -78,7 +119,7 @@ export default function About() {
           ].map((tech, index) => (
             <motion.div
               key={index}
-              className="flex flex-col items-center gap-2 text-center p-4 rounded-lg transition duration-300 hover:shadow-[0_0_15px_#f8f8f8] hover:text-white"
+              className="flex flex-col items-center gap-2 p-4 rounded-lg hover:shadow-[0_0_15px_#f8f8f8]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
