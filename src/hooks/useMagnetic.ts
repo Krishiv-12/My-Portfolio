@@ -1,7 +1,9 @@
-import { useEffect } from "react";
 import gsap from "gsap";
+import { RefObject, useEffect } from "react";
 
-export const useMagnetic = (ref: React.RefObject<HTMLElement>) => {
+export function useMagnetic<T extends HTMLElement>(
+  ref: RefObject<T | null>
+) {
   useEffect(() => {
     if (!ref.current) return;
 
