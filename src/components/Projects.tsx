@@ -6,7 +6,6 @@ import Link from "next/link";
 import { useRef } from "react";
 import { useMagnetic } from "@/hooks/useMagnetic";
 
-/* ---------------- TYPES ---------------- */
 
 type Project = {
   title: string;
@@ -16,13 +15,12 @@ type Project = {
   demo: string;
 };
 
-/* ---------------- DATA ---------------- */
 
 const projects: Project[] = [
   {
     title: "Multi-Vendor E-Commerce Platform",
     description:
-      "A full-stack productivity platform with a Pomodoro timer, drag-and-drop daily planner, and OpenAI assistant. Used by 100+ users daily. Features include JWT-secured login, real-time updates via WebSockets, and trend analytics with Recharts.",
+      "A full-stack multivendor marketplace where multiple sellers can manage products, track orders, and analyze sales through interactive dashboards. Built with React, Redux Toolkit, Node.js, Express, and MongoDB, featuring secure authentication, image uploads via Cloudinary, email notifications, and seamless payments using Razorpay.",
     tech: [
       "React.js",
       "Tailwind CSS",
@@ -71,7 +69,6 @@ const projects: Project[] = [
   },
 ];
 
-/* ---------------- PAGE ---------------- */
 
 export default function Projects() {
   return (
@@ -96,7 +93,6 @@ export default function Projects() {
   );
 }
 
-/* ---------------- COMPONENT ---------------- */
 
 function ProjectRow({
   project,
