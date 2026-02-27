@@ -32,7 +32,7 @@ export default function Navbar() {
 
           {/* Resume Button */}
           <a
-            href="/krishanpal-resume.pdf"
+            href="/KrishanpalRawat-Resume.pdf"
             download
             target="_blank"
             rel="noopener noreferrer"
