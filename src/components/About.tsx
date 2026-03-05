@@ -74,18 +74,23 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           {splitText(
-            "Hi, I'm Krishanpal Rawat — a passionate Full-Stack Developer specializing in the MERN stack based in Bhopal, M.P., currently pursuing MCA from LNCT University."
+            "Hi, I'm Krishanpal Rawat — a passionate Full-Stack Developer specializing in the MERN stack and Next.js."
           )}
           <br />
           <br />
           {splitText(
-            "With hands-on experience at Sheryians Coding School as both a Frontend and Backend Developer, I love turning ideas into scalable, user-friendly web applications."
+            "I enjoy building modern web applications that are fast, scalable, and user-focused. My work focuses on creating clean architecture, secure APIs, and seamless user experiences."
           )}
           <br />
           <br />
-          <span className="text-pink-400 block mt-4">
+          {splitText(
+            "I have developed real-world projects including an AI-powered healthcare assistant and a multi-vendor e-commerce platform with role-based dashboards, payment integration, and analytics systems."
+          )}
+          <br />
+          <br />
+          <span className="text-pink-400 block mt-3">
             {splitText(
-              "If you're looking for someone who's dedicated, curious, and ready to make a difference — let's connect!"
+              "I’m continuously learning modern technologies and looking for opportunities to build impactful digital products."
             )}
           </span>
         </motion.p>

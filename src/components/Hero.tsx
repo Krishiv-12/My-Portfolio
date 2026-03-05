@@ -31,9 +31,21 @@ export default function Home() {
         <motion.div
           key={index}
           className={`absolute w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden shadow-xl hidden md:block`}
-          initial={{ opacity: 0, y: -30, x: -30 }}
-          animate={{ opacity: 1, y: 0, x: 0 }}
-          transition={{ delay: 0.2 * index, duration: 0.6 }}
+          initial={{ opacity: 0, y: 40 }}
+    
+    animate={{
+      opacity: 1,
+      y: [0, -10, 0],
+    }}
+          transition={{
+      opacity: { duration: 0.8, delay: index * 0.3 },
+      y: {
+        duration: 4,
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: index * 0.2,
+      },
+    }}
           style={{
             top: `${(index % 3) * 30 + 20}%`,
             left: `${index * 20 + 5}%`,
@@ -99,13 +111,13 @@ export default function Home() {
         >
           <a
             href="#projects"
-            className="px-20 py-4 md:px-6 md:py-3 bg-white text-black rounded-l-full rounded-tr-2xl rounded-br-full text-sm md:text-base font-semibold hover:bg-gray-200 transition"
+            className="px-20 py-4 md:px-6 md:py-3 bg-white/90 text-black rounded-l-full rounded-tr-2xl rounded-br-full text-sm md:text-base font-semibold hover:bg-pink-200 hover:text-pink-500 transition-all duration-500"
           >
             See My Work
           </a>
           <a
             href="#contact"
-            className="px-20 py-4 md:px-6 md:py-3 border border-white rounded-l-full rounded-tr-2xl rounded-br-full text-sm md:text-base font-semibold hover:bg-pink-200 hover:text-pink-500 transition"
+            className="px-20 py-4 md:px-6 md:py-3 border border-white rounded-l-full rounded-tr-2xl rounded-br-full text-sm md:text-base font-semibold hover:bg-pink-200 hover:text-pink-500 transition-all duration-500"
           >
             Let’s Connect
           </a>
