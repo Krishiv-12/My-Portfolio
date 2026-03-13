@@ -11,6 +11,7 @@ module.exports = {
       fontFamily: {
         outfit: ['var(--font-outfit)'],
          rock: ["var(--font-rock)"],
+         machina: ["var(--font-machina)"],
       },
     },
   },

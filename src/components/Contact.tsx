@@ -9,26 +9,25 @@ export default function Contact() {
   const form = useRef<HTMLFormElement>(null);
   const [status, setStatus] = useState<"idle" | "success" | "error">("idle");
 
-const sendEmail = (e: React.FormEvent) => {
-  e.preventDefault();
-  setStatus("idle");
+  const sendEmail = (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("idle");
 
-  emailjs
-    .sendForm(
-      "service_2w7b7bk",
-      "template_s1jdpfg",
-      form.current!,
-      "cTghXkJoSMY0ualGs"
-    )
-    .then(() => {
-      setStatus("success");
-      form.current?.reset();
-    })
-    .catch(() => {
-      setStatus("error");
-    });
-};
-
+    emailjs
+      .sendForm(
+        "service_2w7b7bk",
+        "template_s1jdpfg",
+        form.current!,
+        "cTghXkJoSMY0ualGs",
+      )
+      .then(() => {
+        setStatus("success");
+        form.current?.reset();
+      })
+      .catch(() => {
+        setStatus("error");
+      });
+  };
 
   return (
     <section id="contact" className="py-20 bg-black text-white px-4">
@@ -42,7 +41,7 @@ const sendEmail = (e: React.FormEvent) => {
           Get In Touch
         </motion.h2>
 
-        <motion.p
+        <motion.p style={{ fontFamily: "var(--font-machina)" }}
           className="text-center text-gray-300 mb-12 max-w-xl mx-auto"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -86,7 +85,13 @@ const sendEmail = (e: React.FormEvent) => {
             />
             <button
               type="submit"
-              className="bg-pink-100 text-pink-500 font-semibold px-6 py-3 rounded-l-full rounded-tr-2xl rounded-br-full hover:bg-pink-200 transition w-full"
+              className="bg-pink-100 text-pink-500 font-semibold px-6 py-3 
+             rounded-l-full rounded-tr-2xl rounded-br-full 
+             w-full
+             hover:bg-pink-200 hover:text-pink-600
+             hover:shadow-[0_0_15px_rgba(255,105,180,0.6)]
+             hover:scale-105
+             transition-all duration-300"
             >
               Send Message
             </button>
@@ -95,7 +100,9 @@ const sendEmail = (e: React.FormEvent) => {
               <p className="text-green-400 mt-2">Message sent successfully!</p>
             )}
             {status === "error" && (
-              <p className="text-red-400 mt-2">Something went wrong. Try again.</p>
+              <p className="text-red-400 mt-2">
+                Something went wrong. Try again.
+              </p>
             )}
           </motion.form>
 
@@ -104,19 +111,27 @@ const sendEmail = (e: React.FormEvent) => {
             <div className="p-5 rounded-xl shadow-lg space-y-4">
               <p className="flex items-center gap-3 text-gray-300">
                 <Mail className="w-5 h-5" />
-                <a href="mailto:Krishivrawat712@gmail.com" className="hover:text-pink-400 transition">
+                <a
+                  href="mailto:Krishivrawat712@gmail.com"
+                  className="hover:text-pink-400 transition"
+                >
                   Krishivrawat712@gmail.com
                 </a>
               </p>
               <p className="flex items-center gap-3 text-gray-300">
                 <Phone className="w-5 h-5" />
-                <a href="tel:+918982482283" className="hover:text-pink-400 transition">
+                <a
+                  href="tel:+918982482283"
+                  className="hover:text-pink-400 transition"
+                >
                   +91 89824 82283
                 </a>
               </p>
               <p className="flex items-center gap-3 text-gray-300">
                 <MapPin className="w-5 h-5" />
-                <span className="hover:text-pink-400 transition cursor-pointer">Bhopal, Madhya Pradesh</span>
+                <span className="hover:text-pink-400 transition cursor-pointer">
+                  Bhopal, Madhya Pradesh
+                </span>
               </p>
               <p className="flex items-center gap-3 text-gray-300">
                 <Linkedin className="w-5 h-5" />

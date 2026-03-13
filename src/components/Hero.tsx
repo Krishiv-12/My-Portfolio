@@ -26,26 +26,24 @@ const textVariants = {
 export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white font-sans overflow-hidden md:overflow-visible relative pt-6">
-     
       {floatingImages.map((src, index) => (
         <motion.div
           key={index}
           className={`absolute w-32 h-32 md:w-40 md:h-40 rounded-xl overflow-hidden shadow-xl hidden md:block`}
           initial={{ opacity: 0, y: 40 }}
-    
-    animate={{
-      opacity: 1,
-      y: [0, -10, 0],
-    }}
+          animate={{
+            opacity: 1,
+            y: [0, -10, 0],
+          }}
           transition={{
-      opacity: { duration: 0.8, delay: index * 0.3 },
-      y: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-        delay: index * 0.2,
-      },
-    }}
+            opacity: { duration: 0.8, delay: index * 0.3 },
+            y: {
+              duration: 4,
+              repeat: Infinity,
+              ease: "easeInOut",
+              delay: index * 0.2,
+            },
+          }}
           style={{
             top: `${(index % 3) * 30 + 20}%`,
             left: `${index * 20 + 5}%`,
@@ -60,47 +58,46 @@ export default function Home() {
           />
         </motion.div>
       ))}
-      
 
-      
       <section className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center">
-    <h1 className="text-5xl sm:text-5xl md:text-9xl font-extrabold md:leading-20 max-w-4xl">
-      <motion.span
-        custom={0}
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-        className="block"
-      >
-        CREATING
-      </motion.span>
-      <motion.span
-        custom={1}
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-        className="block text-pink-400 mx-2"
-      >
-        MODERN
-      </motion.span>
-      <motion.span
-        custom={2}
-        variants={textVariants}
-        initial="hidden"
-        animate="visible"
-        className="block"
-      >
-        EXPERIENCES
-      </motion.span>
-    </h1>
+        <h1 className="text-5xl sm:text-5xl md:text-9xl font-extrabold md:leading-20 max-w-4xl">
+          <motion.span
+            custom={0}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="block"
+          >
+            CREATING
+          </motion.span>
+          <motion.span
+            custom={1}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="block text-pink-400 mx-2"
+          >
+            MODERN
+          </motion.span>
+          <motion.span
+            custom={2}
+            variants={textVariants}
+            initial="hidden"
+            animate="visible"
+            className="block"
+          >
+            EXPERIENCES
+          </motion.span>
+        </h1>
 
-        <motion.p
+        <motion.p 
+          style={{ fontFamily: "var(--font-rock)" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.5, duration: 0.6 }}
           className="text-gray-400 capitalize mt-4 md:max-w-xl w-full md:text-xl px-4"
         >
-           I turn ideas into interactive web applications.
+          I turn ideas into interactive web applications.
         </motion.p>
 
         <motion.div
@@ -111,13 +108,26 @@ export default function Home() {
         >
           <a
             href="#projects"
-            className="px-20 py-4 md:px-6 md:py-3 bg-white/90 text-black rounded-l-full rounded-tr-2xl rounded-br-full text-sm md:text-base font-semibold hover:bg-pink-200 hover:text-pink-500 transition-all duration-500"
+            className="px-20 py-4 md:px-6 md:py-3 bg-white/90 text-black 
+             rounded-l-full rounded-tr-2xl rounded-br-full text-sm md:text-base 
+             font-semibold 
+             hover:bg-pink-200 hover:text-pink-500 
+             transition-all duration-300
+             hover:shadow-[0_0_20px_rgba(255,105,180,0.6)]
+             hover:scale-105"
           >
             See My Work
           </a>
           <a
             href="#contact"
-            className="px-20 py-4 md:px-6 md:py-3 border border-white rounded-l-full rounded-tr-2xl rounded-br-full text-sm md:text-base font-semibold hover:bg-pink-200 hover:text-pink-500 transition-all duration-500"
+            className="px-20 py-4 md:px-6 md:py-3 border border-white border-t-2
+             rounded-l-full rounded-tr-2xl rounded-br-full text-sm md:text-base 
+             font-semibold
+            bg-pink-400 
+             hover:bg-pink-200 hover:text-pink-500 
+             transition-all duration-300
+             hover:shadow-[0_0_20px_rgba(255,105,180,0.6)]
+             hover:scale-105"
           >
             Let’s Connect
           </a>

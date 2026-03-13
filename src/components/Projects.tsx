@@ -143,7 +143,7 @@ function ProjectRow({
           {project.title}
         </h3>
 
-        <p className="text-white/60 text-sm sm:text-base leading-relaxed mb-6 max-w-xl">
+        <p style={{ fontFamily: "var(--font-machina)" }} className="text-white/60 text-sm sm:text-base leading-relaxed mb-6 max-w-xl">
           {project.description}
         </p>
 

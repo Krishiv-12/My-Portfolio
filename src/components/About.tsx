@@ -67,6 +67,7 @@ export default function About() {
 
         {/* 🔥 GSAP + Framer Motion paragraph */}
         <motion.p
+        style={{ fontFamily: "var(--font-machina)" }}
           ref={textRef}
           className="text-lg mb-12 max-w-3xl mx-auto font-inter leading-relaxed"
           initial={{ opacity: 0 }}
