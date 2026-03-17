@@ -5,6 +5,8 @@ import { Outfit, Rock_Salt } from 'next/font/google';
 import localFont from "next/font/local";
 import Script from "next/script";
 
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+
 const outfit = Outfit({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
@@ -64,7 +66,7 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-TYV1JB0GY1');
+            gtag('config', '${GA_ID}');
           `}
         </Script>
       </head>
