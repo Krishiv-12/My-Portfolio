@@ -3,11 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { Outfit, Rock_Salt } from 'next/font/google';
 import localFont from "next/font/local";
-import Script from "next/script";
-import AnalyticsTracker from "@/components/AnalyticsTracker";
 
-
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 const outfit = Outfit({
   subsets: ["latin"],
@@ -42,8 +38,9 @@ const neueMachina = localFont({
   variable: "--font-machina",
 });
 
+
 export const metadata: Metadata = {
-  title: "Krishiv | MERN Stack Developer",
+   title: "Krishiv | MERN Stack Developer",
   description: "Portfolio of a passionate MERN stack developer with full-stack projects.",
   icons: {
     icon: "/favicon.ico",
@@ -52,33 +49,13 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: {
+}: Readonly<{
   children: React.ReactNode;
-}) {
+}>) {
   return (
     <html lang="en">
-      <head>
-        {/* ✅ Google Analytics */}
-        <Script
-  src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-  strategy="afterInteractive"
-/>
-
-<Script id="google-analytics" strategy="afterInteractive">
-  {`
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', '${GA_ID}');
-  `}
-</Script>
-      </head>
-
-      <body
-        className={`${outfit.variable} ${rockSalt.variable} ${neueMachina.variable} antialiased`}
-      >
+      <body className={`${outfit.variable} ${rockSalt.variable} ${neueMachina.variable} antialiased`}>
         <Navbar />
-        <AnalyticsTracker />
         {children}
       </body>
     </html>

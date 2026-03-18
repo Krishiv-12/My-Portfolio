@@ -3,36 +3,15 @@
 import { useState } from "react";
 import Link from "next/link";
 import { Menu, X, Download } from "lucide-react";
-import { event } from "@/lib/gtag";
 
 const navLinks = ["Home", "About", "Projects", "Contact"];
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
 
-  // ✅ Track nav clicks
-  const handleNavClick = (link: string) => {
-    event({
-      action: "click",
-      category: "Navigation",
-      label: link,
-    });
-    setOpen(false);
-  };
-
-  // ✅ Track resume click
-  const handleResumeClick = () => {
-    event({
-      action: "click",
-      category: "Portfolio",
-      label: "Resume Download",
-    });
-  };
-
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur border-b border-gray-200">
       <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
-        
         {/* Logo */}
         <h1
           style={{ fontFamily: "var(--font-machina)" }}
@@ -48,7 +27,6 @@ export default function Navbar() {
               key={link}
               href={`#${link.toLowerCase()}`}
               className="relative group font-medium transition-all duration-300"
-              onClick={() => handleNavClick(link)} // ✅ TRACK
             >
               <span className="transition-all duration-300 group-hover:text-pink-400 group-hover:tracking-wide">
                 {link}
@@ -68,7 +46,6 @@ export default function Navbar() {
             download
             target="_blank"
             rel="noopener noreferrer"
-            onClick={handleResumeClick} // ✅ TRACK
             className="ml-4 flex items-center gap-2 rounded-full border-t-2 border-white 
              px-4 py-1.5 text-sm font-medium text-white bg-pink-400 
              hover:bg-pink-200 hover:text-pink-500 
@@ -94,13 +71,12 @@ export default function Navbar() {
       {/* Mobile Dropdown */}
       {open && (
         <div className="md:hidden bg-black/70 backdrop-blur flex flex-col items-center justify-center space-y-4 h-screen font-bold text-white uppercase border-gray-200">
-          
           {navLinks.map((link) => (
             <Link
               key={link}
               href={`#${link.toLowerCase()}`}
               className="hover:text-pink-500 text-2xl transition"
-              onClick={() => handleNavClick(link)} // ✅ TRACK
+              onClick={() => setOpen(false)}
             >
               {link}
             </Link>
@@ -112,8 +88,8 @@ export default function Navbar() {
             download
             target="_blank"
             rel="noopener noreferrer"
-            onClick={handleResumeClick} // ✅ TRACK
             className="mt-6 flex items-center gap-3 text-2xl text-pink-400 hover:text-pink-300 transition"
+            onClick={() => setOpen(false)}
           >
             Download Resume <Download size={28} />
           </a>
