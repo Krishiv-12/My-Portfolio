@@ -54,7 +54,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${outfit.variable} ${rockSalt.variable} ${neueMachina.variable} antialiased`}>
+      <body className={`${outfit.variable} ${rockSalt.variable} ${neueMachina.variable} antialiased`}
+      suppressHydrationWarning
+      >
         <Navbar />
         {children}
       </body>
