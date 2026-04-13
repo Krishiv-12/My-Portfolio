@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import MouseBackground from "./Mousebackground ";
 
 const floatingImages = [
   "/bg1.avif",
@@ -25,22 +26,29 @@ const textVariants = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black text-white font-sans overflow-hidden md:overflow-visible relative pt-6">
+    <main className="relative min-h-screen bg-black text-white font-sans overflow-hidden md:overflow-visible pt-6">
 
-      {/* ── DOT GRID BACKGROUND ─────────────────────────────────────────── */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          backgroundImage:
-            "radial-gradient(circle, rgba(255,255,255,0.13) 1px, transparent 1px)",
-          backgroundSize: "36px 36px",
-        }}
-      />
+      {/* 🌌 Premium Background Layer */}
+  <div className="absolute inset-0 z-0">
+    <MouseBackground />
+    
+    {/* gradient overlay for depth */}
+    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,105,180,0.08),transparent_60%)]" />
+  </div>
 
-      {/* Edge vignette — fades grid into black at edges */}
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_85%_70%_at_50%_50%,transparent_30%,black_100%)]" />
+  {/* 🔥 GRID */}
+  <div
+    className="pointer-events-none absolute inset-0 z-0"
+    style={{
+      backgroundImage:
+        "radial-gradient(circle, rgba(255,255,255,0.08) 1px, transparent 1px)",
+      backgroundSize: "40px 40px",
+    }}
+  />
 
-      
+  {/* 🖤 VIGNETTE */}
+  <div className="pointer-events-none absolute inset-0 z-0 bg-[radial-gradient(ellipse_80%_70%_at_50%_50%,transparent_30%,black_100%)]" />
+
 
       {/* ── FLOATING IMAGES (original positions) ────────────────────────── */}
       {floatingImages.map((src, index) => (

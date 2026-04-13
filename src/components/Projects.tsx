@@ -110,11 +110,19 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="bg-black py-20 sm:py-24 lg:py-28 px-5 sm:px-8 overflow-hidden"
+      className="bg-black py-10 sm:py-10 lg:py-10 px-5 sm:px-8 overflow-hidden border-t-1 border-white/20"
     >
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
 
         {/* HEADER */}
+        <motion.p
+                    className="text-white/30 text-sm font-mono mb-3"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    04 — Projects
+                  </motion.p>
         <div className="flex items-end justify-between mb-12 lg:mb-16">
           <motion.h2
             className="text-3xl sm:text-4xl lg:text-5xl text-white font-semibold"
