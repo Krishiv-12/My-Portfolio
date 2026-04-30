@@ -19,7 +19,7 @@ const socialLinks = [
   {
     icon: Linkedin,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/krishanpal-rawat-a7bab4278",
+    href: "http://www.linkedin.com/in/krishanpal-rawat",
   },
   {
     icon: Mail,

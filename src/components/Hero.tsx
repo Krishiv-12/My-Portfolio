@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
-import MouseBackground from "./Mousebackground ";
+import ModernBackground from "./ModernBackground";
 
 const floatingImages = [
   "/bg1.avif",
@@ -12,17 +12,6 @@ const floatingImages = [
   "/bg5.avif",
 ];
 
-const textVariants = {
-  hidden: { opacity: 0, y: -40 },
-  visible: (custom: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 1,
-      delay: custom * 0.5,
-    },
-  }),
-};
 
 export default function Home() {
   return (
@@ -30,7 +19,7 @@ export default function Home() {
 
       {/* 🌌 Premium Background Layer */}
   <div className="absolute inset-0 z-0">
-    <MouseBackground />
+    <ModernBackground />
     
     {/* gradient overlay for depth */}
     <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,105,180,0.08),transparent_60%)]" />
@@ -84,6 +73,7 @@ export default function Home() {
             width={300}
             height={300}
             className="object-cover w-full h-full"
+            loading="lazy"
           />
         </motion.div>
       ))}
@@ -92,64 +82,31 @@ export default function Home() {
       <section className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center">
 
         {/* Eyebrow pill */}
-        <motion.div
-          className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10
-                     bg-white/[0.04] px-4 py-1.5 text-[11px] tracking-[0.22em] uppercase
-                     text-white/45 backdrop-blur-sm"
-          initial={{ opacity: 0, y: -14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-        >
+        <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-1.5 text-[11px] tracking-[0.22em] uppercase text-white/45 backdrop-blur-sm animate-fade-in-up delay-0">
           <span className="h-1.5 w-1.5 rounded-full bg-pink-400 animate-pulse" />
           MERN Stack Developer
-        </motion.div>
+        </div>
 
         <h1 className="text-5xl sm:text-5xl md:text-9xl font-extrabold md:leading-20 max-w-4xl">
-          <motion.span
-            custom={0}
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
-            className="block"
-          >
+          <span className="block animate-text-slide delay-0">
             CREATING
-          </motion.span>
-          <motion.span
-            custom={1}
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
-            className="block text-pink-400 mx-2"
-          >
+          </span>
+          <span className="block text-pink-400 mx-2 animate-text-slide delay-150">
             MODERN
-          </motion.span>
-          <motion.span
-            custom={2}
-            variants={textVariants}
-            initial="hidden"
-            animate="visible"
-            className="block"
-          >
+          </span>
+          <span className="block animate-text-slide delay-300">
             EXPERIENCES
-          </motion.span>
+          </span>
         </h1>
 
-        <motion.p
+        <p
           style={{ fontFamily: "var(--font-rock)" }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 1.5, duration: 0.6 }}
-          className="text-gray-400 capitalize mt-4 md:max-w-xl w-full md:text-xl px-4"
+          className="text-gray-400 capitalize mt-4 md:max-w-xl w-full md:text-xl px-4 animate-fade-in-up delay-450"
         >
           I turn ideas into interactive web applications.
-        </motion.p>
+        </p>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mt-8 flex flex-col md:flex-row gap-4"
-        >
+        <div className="mt-8 flex flex-col md:flex-row gap-4 animate-fade-in-up delay-600">
           <a
             href="#projects"
             className="px-20 py-4 md:px-6 md:py-3 bg-white/90 text-black
@@ -175,22 +132,17 @@ export default function Home() {
           >
             Let's Connect
           </a>
-        </motion.div>
+        </div>
 
         {/* Scroll hint */}
-        <motion.div
-          className="mt-14 flex flex-col items-center gap-2 text-white/20"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-        >
+        <div className="mt-14 flex flex-col items-center gap-2 text-white/20 animate-fade-in-up" style={{ animationDelay: '1s' }}>
           <span className="text-[9px] tracking-[0.32em] uppercase">Scroll</span>
           <motion.div
             className="w-px h-10 bg-gradient-to-b from-white/30 to-transparent origin-top"
             animate={{ scaleY: [0, 1, 0] }}
             transition={{ duration: 1.8, repeat: Infinity, ease: "easeInOut" }}
           />
-        </motion.div>
+        </div>
       </section>
 
     </main>

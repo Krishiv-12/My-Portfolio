@@ -46,7 +46,7 @@ const experiences: Role[] = [
   {
     title: "Frontend Development Training",
     company: "Sheryians Coding School",
-    location: "Online",
+    location: "Offline",
     period: "2023",
     type: "training",
     tag: "Frontend",
@@ -59,7 +59,7 @@ const experiences: Role[] = [
   {
     title: "Backend Development Training",
     company: "Sheryians Coding School",
-    location: "Online",
+    location: "Offline",
     period: "2023",
     type: "training",
     tag: "Backend",
