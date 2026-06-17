@@ -102,7 +102,7 @@ export default function Navbar() {
                       initial={{ opacity: 0, scale: 0.9 }}
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.9 }}
-                      href="/KrishanpalRawat-Resume.pdf"
+                      href="/KrishanpalRawat-FullStack-Resume.pdf"
                       download
                       target="_blank"
                       rel="noopener noreferrer"
@@ -250,7 +250,7 @@ export default function Navbar() {
                       krishivrawat712@gmail.com
                     </a>
                     <a
-                      href="/KrishanpalRawat-Resume.pdf"
+                      href="/KrishanpalRawat-FullStack-Resume.pdf"
                       download
                       className="block mt-0.5 text-[13px] text-black/60 dark:text-white/60
                                  hover:text-black dark:hover:text-white transition-colors"
