@@ -74,7 +74,7 @@ export default function Navbar() {
                            hover:text-black dark:hover:text-white transition-colors"
                 style={{ fontFamily: "var(--font-machina, inherit)", letterSpacing: "0.12em" }}
               >
-                KRISHIV<span className="text-black/25 dark:text-white/25">.</span>STUDIO
+                KRISHANPAL
               </Link>
 
               {/* Desktop links — hidden when scrolled (pill is narrow) */}
@@ -204,7 +204,7 @@ export default function Navbar() {
                         {link.label}
                         <span className="text-black/20 dark:text-white/20 text-base
                                          group-hover:text-black/50 dark:group-hover:text-white/50
-                                         transition-colors duration-150 -translate-y-0.5
+                                         duration-150 -translate-y-0.5
                                          group-hover:-translate-y-1 group-hover:translate-x-0.5
                                          inline-block transition-transform">
                           ↗

@@ -3,23 +3,19 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
-import { FaReact, FaNodeJs, FaGitAlt, FaJava, FaBootstrap } from "react-icons/fa";
 import {
-  SiMongodb,
-  SiExpress,
-  SiTypescript,
-  SiTailwindcss,
-  SiNextdotjs,
-  SiRedux,
-  SiFramer,
-  SiJavascript,
-  SiPostman,
-  SiJsonwebtokens,
-  SiCloudinary,
-  SiOpenai,
-  SiSpringboot,
+  FaReact, FaNodeJs, FaGitAlt,
+} from "react-icons/fa";
+
+import {
+  SiNextdotjs, SiTailwindcss, SiTypescript, SiJavascript,
+  SiRedux, SiFramer, SiGreensock,
+  SiExpress, SiSocketdotio, SiJsonwebtokens,
+  SiMongodb, SiMysql, SiMongoose,
+  SiOpenai, SiLangchain, SiGoogle, SiHuggingface,
+  SiPostman, SiNetlify, SiRender, SiCloudinary, SiFigma,
+  SiDocker,
 } from "react-icons/si";
-import { SiLangchain } from "react-icons/si";
 
 const skillCategories = [
   {
@@ -27,15 +23,14 @@ const skillCategories = [
     tag: "UI Layer",
     color: "#f472b6",
     skills: [
-      { icon: <FaReact size={20} />, label: "React.js" },
-      { icon: <SiNextdotjs size={20} />, label: "Next.js" },
-      { icon: <SiTailwindcss size={20} />, label: "Tailwind CSS" },
-      { icon: <SiRedux size={20} />, label: "Redux" },
-      { icon: <SiJavascript size={20} />, label: "JavaScript" },
-      { icon: <SiTypescript size={20} />, label: "TypeScript" },
-      { icon: <FaBootstrap size={20} />, label: "Bootstrap" },
-      { icon: <SiFramer size={20} />, label: "Framer Motion" },
-      { icon: <span className="text-sm font-bold">∿</span>, label: "GSAP" },
+      { icon: <FaReact size={20} />,      label: "React.js"       },
+      { icon: <SiJavascript size={20} />, label: "JavaScript"     },
+      { icon: <SiNextdotjs size={20} />,  label: "Next.js"        },
+      { icon: <SiTypescript size={20} />, label: "TypeScript"     },
+      { icon: <SiTailwindcss size={20} />,label: "Tailwind CSS"   },
+      { icon: <SiRedux size={20} />,      label: "Redux Toolkit"  },
+      { icon: <SiFramer size={20} />,     label: "Framer Motion"  },
+      { icon: <SiGreensock size={20} />,  label: "GSAP"           },
     ],
   },
   {
@@ -43,11 +38,10 @@ const skillCategories = [
     tag: "Server Layer",
     color: "#34d399",
     skills: [
-      { icon: <FaNodeJs size={20} />, label: "Node.js" },
-      { icon: <SiExpress size={20} />, label: "Express.js" },
-      { icon: <FaJava size={20} />, label: "Java" },
-      { icon: <SiSpringboot size={20} />, label: "Spring Boot" },
-      { icon: <SiJsonwebtokens size={20} />, label: "JWT Auth" },
+      { icon: <FaNodeJs size={20} />,        label: "Node.js"     },
+      { icon: <SiExpress size={20} />,       label: "Express.js"  },
+      { icon: <SiSocketdotio size={20} />,   label: "Socket.io"   },
+      { icon: <SiJsonwebtokens size={20} />, label: "JWT Auth"    },
     ],
   },
   {
@@ -55,8 +49,9 @@ const skillCategories = [
     tag: "Data Layer",
     color: "#60a5fa",
     skills: [
-      { icon: <SiMongodb size={20} />, label: "MongoDB" },
-      { icon: <span className="text-sm font-bold font-mono">SQL</span>, label: "SQL" },
+      { icon: <SiMongodb size={20} />,    label: "MongoDB"    },
+      { icon: <SiMongoose size={20} />,   label: "Mongoose"   },
+      { icon: <SiMysql size={20} />,    label: "MySQL"    },
     ],
   },
   {
@@ -64,9 +59,10 @@ const skillCategories = [
     tag: "Intelligence",
     color: "#fb923c",
     skills: [
-      { icon: <SiOpenai size={20} />, label: "OpenAI API" },
+      { icon: <SiOpenai size={20} />,    label: "OpenAI API"   },
       { icon: <SiLangchain size={20} />, label: "LangChain.js" },
-      { icon: <span className="text-xs font-bold font-mono">PE</span>, label: "Prompt Eng." },
+      { icon: <SiGoogle size={20} />,    label: "Gemini API"   },
+      { icon: <SiHuggingface size={20} />,  label: "Hugging Face"  },
     ],
   },
   {
@@ -74,9 +70,13 @@ const skillCategories = [
     tag: "DevOps / Workflow",
     color: "#a78bfa",
     skills: [
-      { icon: <FaGitAlt size={20} />, label: "Git / GitHub" },
-      { icon: <SiPostman size={20} />, label: "Postman" },
-      { icon: <SiCloudinary size={20} />, label: "Cloudinary" },
+      { icon: <FaGitAlt size={20} />,    label: "Git / GitHub" },
+      { icon: <SiDocker size={20} />,    label: "Docker"       },
+      { icon: <SiPostman size={20} />,   label: "Postman"      },
+      { icon: <SiNetlify size={20} />,   label: "Netlify"      },
+      { icon: <SiRender size={20} />,    label: "Render"       },
+      { icon: <SiCloudinary size={20} />,label: "Cloudinary"   },
+      { icon: <SiFigma size={20} />,     label: "Figma"        },
     ],
   },
 ];

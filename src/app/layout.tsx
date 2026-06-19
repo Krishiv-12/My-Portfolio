@@ -40,7 +40,7 @@ const neueMachina = localFont({
 
 
 export const metadata: Metadata = {
-   title: "Krishiv | MERN Stack Developer",
+   title: "Krishanpal | MERN Stack Developer",
   description: "Portfolio of a passionate MERN stack developer with full-stack projects.",
   icons: {
     icon: "/favicon.ico",

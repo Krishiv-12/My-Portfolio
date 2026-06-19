@@ -36,7 +36,7 @@ export default function Preloader({ onFinish }: { onFinish: () => void }) {
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          Krishiv
+          Krishanpal
           <span className="text-pink-400">.</span>Studio
         </motion.h1>
 
